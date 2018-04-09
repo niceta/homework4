@@ -1,4 +1,4 @@
-import org.openqa.selenium.WebDriver;
+﻿import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -7,7 +7,6 @@ import java.util.concurrent.TimeUnit;
 public class BaseRunner {
     public WebDriver driver;
     public String baseUrl;
-    private String browserName;
 
     @BeforeClass(alwaysRun = true)
     public void setUp() {
@@ -22,7 +21,15 @@ public class BaseRunner {
         driver.quit();
     }
 
+    protected void sleep(int ms) {
+        try {
+            Thread.sleep(ms);
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+    }
     private WebDriver getDriver() {
+        String browserName;
         try {
             browserName = System.getProperty("browser");
             BrowsersFactory.valueOf(browserName);
