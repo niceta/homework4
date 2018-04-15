@@ -1,4 +1,6 @@
 ﻿import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -21,6 +23,17 @@ public class BaseRunner {
         driver.quit();
     }
 
+    protected void switchWindow(String parentHandle) {
+        WebDriverWait wait = new WebDriverWait(driver, 60);
+        wait.until(d -> d.getWindowHandles().size() > 1);
+
+        for(String childHandle : driver.getWindowHandles()){
+            if (!childHandle.equals(parentHandle)){
+                driver.switchTo().window(childHandle);
+            }
+        }
+    }
+
     protected void sleep(int ms) {
         try {
             Thread.sleep(ms);
@@ -28,13 +41,15 @@ public class BaseRunner {
             ex.printStackTrace();
         }
     }
+
     private WebDriver getDriver() {
         String browserName;
         try {
             browserName = System.getProperty("browser");
             BrowsersFactory.valueOf(browserName);
         } catch (NullPointerException | IllegalArgumentException e) {
-            browserName = "firefox";
+            //browserName = "firefox";
+            browserName = "chrome";
             System.setProperty("browser", browserName);
         }
         return BrowsersFactory.valueOf(browserName).create();
