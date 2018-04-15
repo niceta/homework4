@@ -73,7 +73,8 @@ public class TestTinkoffMobile extends BaseRunner {
         mobile.click();
 
         driver.findElement(By.xpath("//*[@name='productBlock']//button")).click();
-        WebElement calculator = driver.findElement(By.xpath("//*[@name='mobileOperatorTariffCalculator']"));
+       //WebElement calculator = driver.findElement(By.xpath("//*[@name='mobileOperatorTariffCalculator']"));
+        WebElement calculator = driver.findElement(By.xpath("//*[@id='form-application']"));
         assertEquals(calculator.isDisplayed(), true);
     }
 }
