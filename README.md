@@ -1,10 +1,15 @@
 # homework4
+tests-name:
+TestKatalon
+TestXpath
+TestCss
+TestTinkoffMobile
 Launch from firefox:
 
--Dtest=TestSuite1 -Dbrowser=firefox verify
+-Dtest=test-name -Dbrowser=firefox verify
 
 from chrome:
--Dtest=TestSuite1 -Dbrowser=chrome verify
+-Dtest=test-name -Dbrowser=chrome verify
 
-default launch = firefox:
--Dtest=TestSuite1 verify
+default launch = chrome:
+-Dtest=test-name verify
