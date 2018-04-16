@@ -21,7 +21,7 @@ public class TestTinkoffMobile extends BaseRunner {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         String textMoney = wait.until(d -> d.findElement(By.xpath("//*[contains(@class, 'TextMoney')]")).getText());
         //System.out.println(textMoney);
-        sleep(500);
+        //sleep(500);
 
         driver.findElement(By.xpath("//*[@role='menuitem' and .//text()='0']")).click();
         driver.findElement(By.xpath("//*[@role='menuitem' and .//text()='0 ГБ']")).click();
@@ -30,8 +30,8 @@ public class TestTinkoffMobile extends BaseRunner {
         WebElement messengersToggle = togglers.get(1);
         WebElement networksToggle = togglers.get(2);
 
-        WebElement musicLabel = driver.findElement(By.xpath("//*[text()='Музыка']"));
-        js.executeScript("arguments[0].scrollIntoView(false)", musicLabel);
+        //WebElement musicLabel = driver.findElement(By.xpath("//*[text()='Музыка']"));
+        //js.executeScript("arguments[0].scrollIntoView(false)", musicLabel);
 
         messengersToggle.click();
         networksToggle.click();
