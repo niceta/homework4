@@ -1,9 +1,10 @@
-﻿package pages;
+﻿package pages.google;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import pages.Page;
 
-public class GoogleResultPage extends Page{
+public class GoogleResultPage extends Page {
     public GoogleResultPage(WebDriver driver) {
         super(driver);
     }

@@ -1,26 +1,31 @@
-﻿package pages;
+﻿package pages.google;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import pages.Page;
 
-public class TinkoffPaymentsPage extends Page {
-    @FindBy(xpath = "//input[@id='']")
+public class GooglePage extends Page {
+    @FindBy(xpath = "//*[@id='lst-ib']")
     public WebElement searchLine;
 
-    @FindBy(xpath = "//*[contains(text(), 'Тинькофф Мобайл')]")
-    public WebElement tinkoffMobile;
-
-    public TinkoffPaymentsPage(WebDriver driver) {
+    public GooglePage(WebDriver driver, String url) {
         super(driver);
+        this.url = url;
         PageFactory.initElements(driver, this);
     }
+
+    /*public void open() {
+        driver.navigate().to("https://www.google.ru");
+        handle = driver.getWindowHandle();
+    }*/
 
     public void search(String request) {
         searchLine.click();
         searchLine.clear();
         searchLine.sendKeys(request);
-        tinkoffMobile.click();
+        searchLine.sendKeys(Keys.ENTER);
     }
 }
