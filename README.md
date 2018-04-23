@@ -1,9 +1,12 @@
 # homework4
 tests-name:
-TestKatalon
-TestXpath
-TestCss
-TestTinkoffMobile
+{TestKatalon}
+{TestXpath  } old
+{TestCss    }
+
+MainTest
+TinkoffMobileTest
+
 Launch from firefox:
 
 -Dtest=test-name -Dbrowser=firefox verify
