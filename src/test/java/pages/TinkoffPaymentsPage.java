@@ -23,8 +23,4 @@ public class TinkoffPaymentsPage extends Page {
         searchLine.sendKeys(request);
         tinkoffMobile.click();
     }
-
-    public void click(WebElement element) {
-        element.click();
-    }
 }

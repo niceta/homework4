@@ -9,12 +9,12 @@ public class TinkoffPage extends Page {
     @FindBy(xpath = "//div[contains(@class, 'SecondMenu')]//a[@href='/payments/']")
     public WebElement payments;
 
-    public TinkoffPage(WebDriver driver) {
-        super(driver);
-        PageFactory.initElements(driver, this);
-    }
+    @FindBy(xpath = "//*[contains(@class, 'FirstMenu')]//a[@href='/mobile-operator/']")
+    public WebElement mobileButton;
 
-    public void click(WebElement element) {
-        element.click();
+    public TinkoffPage(WebDriver driver, String url) {
+        super(driver);
+        this.url = url;
+        PageFactory.initElements(driver, this);
     }
 }

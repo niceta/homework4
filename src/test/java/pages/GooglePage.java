@@ -10,15 +10,16 @@ public class GooglePage extends Page {
     @FindBy(xpath = "//*[@id='lst-ib']")
     public WebElement searchLine;
 
-    public GooglePage(WebDriver driver) {
+    public GooglePage(WebDriver driver, String url) {
         super(driver);
+        this.url = url;
         PageFactory.initElements(driver, this);
     }
 
-    public void open() {
+    /*public void open() {
         driver.navigate().to("https://www.google.ru");
         handle = driver.getWindowHandle();
-    }
+    }*/
 
     public void search(String request) {
         searchLine.click();

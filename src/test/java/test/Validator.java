@@ -2,15 +2,21 @@
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+
+import java.util.List;
+
 import static org.testng.Assert.assertEquals;
 
 public class Validator {
     private WebElement element;
+    private List<WebElement> elements;
 
-    public Validator(WebElement mainElement) {
-        this.element = mainElement;
+    public Validator(WebElement element) {
+        this.element = element;
     }
-
+    public Validator(List<WebElement> elements) {
+        this.elements = elements;
+    }
     public void input(String text) {
        element.click();
        element.clear();
@@ -20,6 +26,20 @@ public class Validator {
 
     public void validateText(String expected) {
         assertEquals(expected, element.getText());
+    }
+
+    public void validateEnabled(boolean enabled) {assertEquals(enabled, element.isEnabled());}
+
+    public void validateVisible(boolean visible) {assertEquals(visible, element.isDisplayed());}
+
+    public void validateElementsNotVisible() {
+         assertEquals(elements.size(), 0);
+    }
+
+    public void validateValueLessThan(String value) {
+        int unlim = Integer.parseInt(value.replaceAll("\\D+", ""));
+        int lim = Integer.parseInt(element.getText().replaceAll("\\D+", ""));
+        assertEquals(lim < unlim, true);
     }
 
     public void validatePhone(String number) {

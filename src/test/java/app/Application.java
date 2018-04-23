@@ -11,7 +11,9 @@ public class Application {
     public GoogleResultPage googleResultPage;
     public TinkoffPage tinkoffPage;
     public TinkoffPaymentsPage paymentsPage;
-    public TinkoffMobilePage mobilePage;
+    public TinkoffMobilePayPage mobilePage;
+    public TinkoffMobilePage tinkoffMobilePage;
+    public TariffsPage tariffsPage;
 
     private WebDriverWait wait;
     private WebDriver driver;
@@ -21,11 +23,14 @@ public class Application {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.manage().window().maximize();
 
-        googlePage = new GooglePage(driver);
+        googlePage = new GooglePage(driver, "https://www.google.ru");
         googleResultPage = new GoogleResultPage(driver);
-        tinkoffPage = new TinkoffPage(driver);
+        tinkoffPage = new TinkoffPage(driver, "https://www.tinkoff.ru");
         paymentsPage = new TinkoffPaymentsPage(driver);
-        mobilePage = new TinkoffMobilePage(driver);
+        mobilePage = new TinkoffMobilePayPage(driver);
+
+        tinkoffMobilePage = new TinkoffMobilePage(driver);
+        tariffsPage = new TariffsPage(driver);
     }
 
     public void quit() {

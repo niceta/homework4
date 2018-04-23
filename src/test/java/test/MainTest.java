@@ -20,7 +20,7 @@ public class MainTest extends BaseRunner {
         TinkoffPaymentsPage tinkoffPayments = app.paymentsPage;
         tinkoffPayments.search("Тинькофф Мобайл");
 
-        TinkoffMobilePage tinkoffMobile = app.mobilePage;
+        TinkoffMobilePayPage tinkoffMobile = app.mobilePage;
         tinkoffMobile.validatePhone("1123c!@sdfgs5gs54#sg5s$#%#Fr3234543tf33453f4");
         tinkoffMobile.validateAmount("14$#%*228/14+1223-");
     }
